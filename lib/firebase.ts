@@ -1,7 +1,7 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
-import { getStorage } from 'firebase/storage';
+import { initializeApp } from "firebase/app";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "demo-api-key",
@@ -9,7 +9,7 @@ const firebaseConfig = {
   projectId: "upsc-dreams-demo",
   storageBucket: "upsc-dreams-demo.appspot.com",
   messagingSenderId: "123456789012",
-  appId: "1:123456789012:web:abcdef123456"
+  appId: "1:123456789012:web:abcdef123456",
 };
 
 let app;
@@ -25,7 +25,7 @@ try {
   db = getFirestore(app);
   storage = getStorage(app);
 } catch (error) {
-  console.warn('Firebase initialization failed - using demo mode');
+  console.warn("Firebase initialization failed - using demo mode");
 }
 
 export { auth, googleProvider, db, storage };

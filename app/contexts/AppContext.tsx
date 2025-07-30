@@ -1,7 +1,12 @@
+"use client";
 
-'use client';
-
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 
 interface User {
   id: string;
@@ -21,8 +26,8 @@ interface AuthContextType {
 interface ThemeContextType {
   isDark: boolean;
   toggleTheme: () => void;
-  language: 'en' | 'hi';
-  setLanguage: (lang: 'en' | 'hi') => void;
+  language: "en" | "hi";
+  setLanguage: (lang: "en" | "hi") => void;
 }
 
 interface AppContextType {
@@ -35,30 +40,30 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 export function AppProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isDark, setIsDark] = useState(false);
-  const [language, setLanguage] = useState<'en' | 'hi'>('en');
+  const [language, setLanguage] = useState<"en" | "hi">("en");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const initializeApp = () => {
-      const savedUser = localStorage.getItem('thinkias_user');
+      const savedUser = localStorage.getItem("thinkias_user");
       if (savedUser) {
         try {
           setUser(JSON.parse(savedUser));
         } catch (error) {
-          localStorage.removeItem('thinkias_user');
+          localStorage.removeItem("thinkias_user");
         }
       }
 
       const savedTheme = localStorage.getItem("thinkias_theme");
-      if (savedTheme === 'dark') {
+      if (savedTheme === "dark") {
         setIsDark(true);
-        document.documentElement.classList.add('dark');
+        document.documentElement.classList.add("dark");
       } else {
-        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.remove("dark");
       }
 
       const savedLanguage = localStorage.getItem("thinkias_language");
-      if (savedLanguage === 'hi' || savedLanguage === 'en') {
+      if (savedLanguage === "hi" || savedLanguage === "en") {
         setLanguage(savedLanguage);
       }
 
@@ -70,59 +75,59 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   const signInWithEmail = async (email: string, password: string) => {
     const demoUser = {
-      id: 'demo_user_' + Date.now(),
-      displayName: email.split('@')[0],
-      email: email
+      id: "demo_user_" + Date.now(),
+      displayName: email.split("@")[0],
+      email: email,
     };
 
     setUser(demoUser);
-    localStorage.setItem('thinkias_user', JSON.stringify(demoUser));
+    localStorage.setItem("thinkias_user", JSON.stringify(demoUser));
   };
 
   const signUpWithEmail = async (email: string, password: string) => {
     const demoUser = {
-      id: 'demo_user_' + Date.now(),
-      displayName: email.split('@')[0],
-      email: email
+      id: "demo_user_" + Date.now(),
+      displayName: email.split("@")[0],
+      email: email,
     };
 
     setUser(demoUser);
-    localStorage.setItem('thinkias_user', JSON.stringify(demoUser));
+    localStorage.setItem("thinkias_user", JSON.stringify(demoUser));
   };
 
   const signInWithGoogle = async () => {
     const demoUser = {
-      id: 'google_user_' + Date.now(),
-      displayName: 'Google User',
-      email: 'google.user@gmail.com',
-      photoURL: 'https://lh3.googleusercontent.com/a/default-user=s96-c'
+      id: "google_user_" + Date.now(),
+      displayName: "Google User",
+      email: "google.user@gmail.com",
+      photoURL: "https://lh3.googleusercontent.com/a/default-user=s96-c",
     };
 
     setUser(demoUser);
-    localStorage.setItem('thinkias_user', JSON.stringify(demoUser));
+    localStorage.setItem("thinkias_user", JSON.stringify(demoUser));
   };
 
   const logout = async () => {
     setUser(null);
-    localStorage.removeItem('thinkias_user');
+    localStorage.removeItem("thinkias_user");
   };
 
   const toggleTheme = () => {
     const newTheme = !isDark;
     setIsDark(newTheme);
-    
+
     if (newTheme) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('thinkias_theme', 'dark');
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("thinkias_theme", "dark");
     } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('thinkias_theme', 'light');
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("thinkias_theme", "light");
     }
   };
 
-  const handleLanguageChange = (lang: 'en' | 'hi') => {
+  const handleLanguageChange = (lang: "en" | "hi") => {
     setLanguage(lang);
-    localStorage.setItem('thinkias_language', lang);
+    localStorage.setItem("thinkias_language", lang);
   };
 
   const authContext: AuthContextType = {
@@ -130,19 +135,19 @@ export function AppProvider({ children }: { children: ReactNode }) {
     signInWithEmail,
     signUpWithEmail,
     signInWithGoogle,
-    logout
+    logout,
   };
 
   const themeContext: ThemeContextType = {
     isDark,
     toggleTheme,
     language,
-    setLanguage: handleLanguageChange
+    setLanguage: handleLanguageChange,
   };
 
   const contextValue: AppContextType = {
     auth: authContext,
-    theme: themeContext
+    theme: themeContext,
   };
 
   if (loading) {
@@ -169,16 +174,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <AppContext.Provider value={contextValue}>
-      {children}
-    </AppContext.Provider>
+    <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>
   );
 }
 
 export function useAuth(): AuthContextType {
   const context = useContext(AppContext);
   if (context === undefined) {
-    throw new Error('useAuth must be used within an AppProvider');
+    throw new Error("useAuth must be used within an AppProvider");
   }
   return context.auth;
 }
@@ -186,7 +189,7 @@ export function useAuth(): AuthContextType {
 export function useTheme(): ThemeContextType {
   const context = useContext(AppContext);
   if (context === undefined) {
-    throw new Error('useTheme must be used within an AppProvider');
+    throw new Error("useTheme must be used within an AppProvider");
   }
   return context.theme;
 }

@@ -1,12 +1,17 @@
 const OPENAI_API_KEY = "demo-openai-key";
 
-export async function generateNotes(subject: string, topic: string, language: string = 'english') {
+export async function generateNotes(
+  subject: string,
+  topic: string,
+  language: string = "english"
+) {
   try {
     // Mock response for demo purposes
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    const mockContent = language === 'english' 
-      ? `# ${subject} - ${topic}
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    const mockContent =
+      language === "english"
+        ? `# ${subject} - ${topic}
 
 ## Key Points:
 1. Important concept related to ${topic}
@@ -34,7 +39,7 @@ This is a comprehensive overview of ${topic} in the context of ${subject}. The t
 - Recommended books and articles
 - Government reports and white papers
 - Online resources for further reading`
-      : `# ${subject} - ${topic}
+        : `# ${subject} - ${topic}
 
 ## मुख्य बिंदु:
 1. ${topic} से संबंधित महत्वपूर्ण अवधारणा
@@ -48,8 +53,8 @@ This is a comprehensive overview of ${topic} in the context of ${subject}. The t
 
     return mockContent;
   } catch (error) {
-    console.error('Error generating notes:', error);
-    return language === 'english' 
+    console.error("Error generating notes:", error);
+    return language === "english"
       ? `# Sample Notes for ${subject} - ${topic}\n\nThis is a demo note generated for ${topic} under ${subject}. In production, this would be generated using OpenAI API.`
       : `# ${subject} - ${topic} के लिए नमूना नोट्स\n\nयह ${subject} के अंतर्गत ${topic} के लिए एक डेमो नोट है। उत्पादन में, यह OpenAI API का उपयोग करके उत्पन्न होगा।`;
   }
@@ -58,23 +63,27 @@ This is a comprehensive overview of ${topic} in the context of ${subject}. The t
 export async function generateMCQs(subject: string, count: number = 5) {
   try {
     // Mock response for demo purposes
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
     const mockMCQs = Array.from({ length: count }, (_, index) => ({
-      question: `Sample MCQ ${index + 1} for ${subject}: Which of the following is correct?`,
+      question: `Sample MCQ ${
+        index + 1
+      } for ${subject}: Which of the following is correct?`,
       options: [
         "Option A - First choice",
-        "Option B - Second choice", 
+        "Option B - Second choice",
         "Option C - Third choice",
-        "Option D - Fourth choice"
+        "Option D - Fourth choice",
       ],
       correctAnswer: Math.floor(Math.random() * 4),
-      explanation: `This is the explanation for question ${index + 1}. The correct answer is based on fundamental concepts of ${subject}.`
+      explanation: `This is the explanation for question ${
+        index + 1
+      }. The correct answer is based on fundamental concepts of ${subject}.`,
     }));
 
     return mockMCQs;
   } catch (error) {
-    console.error('Error generating MCQs:', error);
+    console.error("Error generating MCQs:", error);
     return [];
   }
 }
