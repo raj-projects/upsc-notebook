@@ -92,7 +92,7 @@ export default function NotesPage() {
           <div className="flex items-center justify-between">
             {!isCollapsed && (
               <h1 className="text-xl font-bold text-blue-600 dark:text-blue-400" style={{fontFamily: '"Pacifico", serif'}}>
-                UPSC Dreams
+                ThinkIAS
               </h1>
             )}
             <button

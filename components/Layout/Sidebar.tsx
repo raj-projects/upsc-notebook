@@ -68,7 +68,7 @@ export default function Sidebar({ currentPage = 'dashboard' }: SidebarProps) {
         <div className="flex items-center justify-between">
           {!isCollapsed && (
             <h1 className="text-xl font-bold text-blue-600 dark:text-blue-400 font-pacifico">
-              UPSC Dreams
+              ThinkIAS
             </h1>
           )}
           <button

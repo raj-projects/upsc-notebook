@@ -46,7 +46,7 @@ export default function LoginForm() {
         {/* Logo */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-blue-600 dark:text-blue-400 font-pacifico mb-2">
-            UPSC Dreams
+            ThinkIAS
           </h1>
           <p className="text-gray-600 dark:text-gray-300">
             {language === 'en' ? 'Your journey to civil services starts here' : 'सिविल सेवाओं की आपकी यात्रा यहाँ से शुरू होती है'}
