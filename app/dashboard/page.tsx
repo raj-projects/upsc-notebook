@@ -14,14 +14,14 @@ export default function DashboardPage() {
 
   useEffect(() => {
     const checkAuth = () => {
-      const userData = localStorage.getItem('jha_user');
+      const userData = localStorage.getItem('thinkias_user');
       if (!userData) {
         router.push('/');
         return;
       }
 
-      const savedTheme = localStorage.getItem('jha_theme');
-      const savedLanguage = localStorage.getItem('jha_language');
+      const savedTheme = localStorage.getItem('thinkias_theme');
+      const savedLanguage = localStorage.getItem('thinkias_language');
       
       if (savedTheme === 'dark') {
         setIsDark(true);
@@ -44,21 +44,21 @@ export default function DashboardPage() {
     
     if (newTheme) {
       document.documentElement.classList.add('dark');
-      localStorage.setItem('jha_theme', 'dark');
+      localStorage.setItem('thinkias_theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('jha_theme', 'light');
+      localStorage.setItem('thinkias_theme', 'light');
     }
   };
 
   const toggleLanguage = () => {
     const newLang = language === 'en' ? 'hi' : 'en';
     setLanguage(newLang);
-    localStorage.setItem('jha_language', newLang);
+    localStorage.setItem('thinkias_language', newLang);
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('jha_user');
+    localStorage.removeItem('thinkias_user');
     router.push('/');
   };
 

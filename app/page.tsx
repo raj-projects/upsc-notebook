@@ -13,8 +13,8 @@ export default function HomePage() {
 
   useEffect(() => {
     const checkAuth = () => {
-      const user = localStorage.getItem('jha_user');
-      const savedLanguage = localStorage.getItem('jha_language') || 'en';
+      const user = localStorage.getItem('thinkias_user');
+      const savedLanguage = localStorage.getItem('thinkias_language') || 'en';
       
       setIsLoggedIn(!!user);
       setLanguage(savedLanguage);
@@ -25,7 +25,7 @@ export default function HomePage() {
   }, []);
 
   const handleLogin = () => {
-    localStorage.setItem('jha_user', JSON.stringify({ 
+    localStorage.setItem('thinkias_user', JSON.stringify({ 
       id: 'demo_user', 
       name: 'UPSC Aspirant', 
       email: 'demo@jhawebsite.com' 
@@ -37,7 +37,7 @@ export default function HomePage() {
   const toggleLanguage = () => {
     const newLang = language === 'en' ? 'hi' : 'en';
     setLanguage(newLang);
-    localStorage.setItem('jha_language', newLang);
+    localStorage.setItem('thinkias_language', newLang);
   };
 
   if (loading) {

@@ -40,16 +40,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const initializeApp = () => {
-      const savedUser = localStorage.getItem('jha_user');
+      const savedUser = localStorage.getItem('thinkias_user');
       if (savedUser) {
         try {
           setUser(JSON.parse(savedUser));
         } catch (error) {
-          localStorage.removeItem('jha_user');
+          localStorage.removeItem('thinkias_user');
         }
       }
 
-      const savedTheme = localStorage.getItem('jha_theme');
+      const savedTheme = localStorage.getItem("thinkias_theme");
       if (savedTheme === 'dark') {
         setIsDark(true);
         document.documentElement.classList.add('dark');
@@ -57,7 +57,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         document.documentElement.classList.remove('dark');
       }
 
-      const savedLanguage = localStorage.getItem('jha_language');
+      const savedLanguage = localStorage.getItem("thinkias_language");
       if (savedLanguage === 'hi' || savedLanguage === 'en') {
         setLanguage(savedLanguage);
       }
@@ -76,7 +76,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     };
 
     setUser(demoUser);
-    localStorage.setItem('jha_user', JSON.stringify(demoUser));
+    localStorage.setItem('thinkias_user', JSON.stringify(demoUser));
   };
 
   const signUpWithEmail = async (email: string, password: string) => {
@@ -87,7 +87,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     };
 
     setUser(demoUser);
-    localStorage.setItem('jha_user', JSON.stringify(demoUser));
+    localStorage.setItem('thinkias_user', JSON.stringify(demoUser));
   };
 
   const signInWithGoogle = async () => {
@@ -99,12 +99,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
     };
 
     setUser(demoUser);
-    localStorage.setItem('jha_user', JSON.stringify(demoUser));
+    localStorage.setItem('thinkias_user', JSON.stringify(demoUser));
   };
 
   const logout = async () => {
     setUser(null);
-    localStorage.removeItem('jha_user');
+    localStorage.removeItem('thinkias_user');
   };
 
   const toggleTheme = () => {
@@ -113,16 +113,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
     
     if (newTheme) {
       document.documentElement.classList.add('dark');
-      localStorage.setItem('jha_theme', 'dark');
+      localStorage.setItem('thinkias_theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('jha_theme', 'light');
+      localStorage.setItem('thinkias_theme', 'light');
     }
   };
 
   const handleLanguageChange = (lang: 'en' | 'hi') => {
     setLanguage(lang);
-    localStorage.setItem('jha_language', lang);
+    localStorage.setItem('thinkias_language', lang);
   };
 
   const authContext: AuthContextType = {
