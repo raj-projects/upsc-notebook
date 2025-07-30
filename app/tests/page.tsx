@@ -90,7 +90,7 @@ export default function TestsPage() {
     }
   ];
 
-  const handleStartTest = (testType) => {
+  const handleStartTest = (testType: any) => {
     alert(`Starting ${testType.title} test. This will redirect to the test interface.`);
   };
 

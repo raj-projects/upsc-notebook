@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { useTheme, useAuth } from '../../contexts/AppContext';
+import { useAuth, useTheme } from '@/app/contexts/AppContext';
 
 interface SidebarProps {
   currentPage?: string;

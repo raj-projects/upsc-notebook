@@ -1,6 +1,5 @@
-
 {
-  "name": "jha-website-upsc",
+  "name": "upsc-notebook",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -8,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "install:clean": "rm -rf node_modules package-lock.json && npm install",
+    "clean": "rm -rf .next node_modules package-lock.json && npm install",
+    "clean:build": "npm run clean && npm run build && npm run dev",
+    "type-check": "tsc --noEmit",
     "install:yarn": "yarn install",
     "install:timeout": "npm install --timeout=60000"
   },

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useTheme } from '../../contexts/AppContext';
+import { useTheme } from "@/app/contexts/AppContext";
 
 interface Note {
   id: string;

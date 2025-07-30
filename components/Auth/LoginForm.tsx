@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useAuth, useTheme } from '../../contexts/AppContext';
+import { useAuth, useTheme } from '@/app/contexts/AppContext';
 
 export default function LoginForm() {
   const [isLogin, setIsLogin] = useState(true);

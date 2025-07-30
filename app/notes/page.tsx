@@ -57,6 +57,13 @@ export default function NotesPage() {
   ];
 
   const subjects = ['all', 'Polity', 'Geography', 'History', 'Economics', 'Environment', 'Science & Technology'];
+  
+  interface Note {
+    title: string;
+    // add other properties if they exist, like:
+    // content?: string;
+    // id?: number;
+  }
 
   const filteredNotes = notes.filter(note => {
     const matchesSearch = note.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -70,7 +77,7 @@ export default function NotesPage() {
     alert('Create note functionality will be implemented');
   };
 
-  const handleEditNote = (note) => {
+  const handleEditNote = (note: Note) => {
     alert(`Edit note: ${note.title}`);
   };
 

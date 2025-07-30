@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useTheme } from '../../contexts/AppContext';
 import { generateNotes } from '../../lib/openai';
+import { useTheme } from '@/app/contexts/AppContext';
 
 interface Note {
   id?: string;
