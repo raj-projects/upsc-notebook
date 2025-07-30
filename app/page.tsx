@@ -45,7 +45,7 @@ export default function HomePage() {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
         <div className="text-center">
           <i className="ri-loader-4-line text-5xl animate-spin text-blue-600 mb-4"></i>
-          <p className="text-gray-600">Loading Jha Website...</p>
+          <p className="text-gray-600">Loading ThinkIAS...</p>
         </div>
       </div>
     );
@@ -64,7 +64,7 @@ export default function HomePage() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <h1 className="text-2xl font-bold text-blue-600" style={{fontFamily: '"Pacifico", serif'}}>
-                Jha Website
+                ThinkIAS
               </h1>
               <span className="ml-3 px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
                 UPSC Preparation
@@ -288,7 +288,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h3 className="text-2xl font-bold mb-2" style={{fontFamily: '"Pacifico", serif'}}>
-              Jha Website
+              ThinkIAS
             </h3>
             <p className="text-gray-400 mb-4">
               {language === 'en' 

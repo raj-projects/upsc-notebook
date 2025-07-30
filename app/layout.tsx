@@ -1,23 +1,26 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { AppProvider } from "./contexts/AppContext";
 
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
-import { AppProvider } from './contexts/AppContext'
+const inter = Inter({ subsets: ["latin"] });
 
-const inter = Inter({ subsets: ['latin'] })
-
+// ✅ Only keep allowed fields here
 export const metadata: Metadata = {
-  title: 'Jha Website - UPSC Preparation Platform',
-  description: 'AI-powered UPSC preparation platform with notes, practice tests, current affairs, and study planning tools.',
-  manifest: '/manifest.json',
-  themeColor: '#2563eb',
-  viewport: 'width=device-width, initial-scale=1',
-}
+  title: "ThinkIAS - UPSC Preparation Platform",
+  description:
+    "AI-powered UPSC preparation platform with notes, practice tests, current affairs, and study planning tools.",
+  manifest: "/manifest.json",
+};
+
+// ✅ Move themeColor and viewport to their own exports
+export const themeColor = "#2563eb";
+export const viewport = "width=device-width, initial-scale=1";
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -30,10 +33,8 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icon-192x192.png" />
       </head>
       <body className={inter.className} suppressHydrationWarning>
-        <AppProvider>
-          {children}
-        </AppProvider>
+        <AppProvider>{children}</AppProvider>
       </body>
     </html>
-  )
+  );
 }

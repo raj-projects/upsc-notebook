@@ -147,19 +147,22 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   if (loading) {
     return React.createElement(
-      'div',
-      { className: 'min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100' },
+      "div",
+      {
+        className:
+          "min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100",
+      },
       React.createElement(
-        'div',
-        { className: 'text-center' },
+        "div",
+        { className: "text-center" },
+        React.createElement("div", {
+          className:
+            "w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4",
+        }),
         React.createElement(
-          'div',
-          { className: 'w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4' }
-        ),
-        React.createElement(
-          'p',
-          { className: 'text-gray-600' },
-          'Loading Jha Website...'
+          "p",
+          { className: "text-gray-600" },
+          "Loading ThinkIAS..."
         )
       )
     );
